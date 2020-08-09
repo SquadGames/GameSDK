@@ -1,2 +1,4 @@
 # GameSDK
-Build into your game efficient marketplaces for your modders and players
+Build games that radically support modding with marketplaces and revenue sharing
+
+

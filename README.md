@@ -7,7 +7,7 @@ Build games that radically support modding with marketplaces and revenue sharing
     * Platform specific install/launch instructions
   * Format
   * Component
-* Implemented Licenses
+* Implemented Licenses (TODO sync with paper)
   * Format must share > X% revenue evenly with components
   * Format must share > X% with the Game
   * Components must share > X% with the Game

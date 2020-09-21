@@ -11,21 +11,27 @@
 
 ### `tokenPriceEstimate`
 `tokenPriceEstimate(contributionId, buySellAmount)`
+Should price estimate's automatically give a little wiggle room in case of simultaneous purchases?
 
 ### `licensePriceEstimate`
 `licensePriceEstimate(contributionId)`
 
 ### `buyTokens`
-`buyTokens(contributionId, buyAmount, buyPrice)`
-Automatically set maxPrice
+`buyTokens(contributionId, buyAmount, maxPrice)`
 
 ### `buyLicense`
+`buyLicense(contributionId)`
 
 ### `sellTokens`
 
 ### `sellLicenseForTokens`
 
 ### `sellLicenseForReserve`
+
+## Withdrawing Funds
+
+### `withdraw`
+`withdraw(benefactor)`
 
 ## Curating Contributions
 

@@ -3,12 +3,21 @@
 ## Submitting Contributions
 
 ### `newContribution`
-`newContribution(contribution, [tags], benefactor) => id`
+`newContribution(contribution, [tags], benefactor, network) => id`
+
+`Contribution { data, license }`
 
 ## Buying and Selling Contribution Bonds and Usage Rights
 
+### `tokenPriceEstimate`
+`tokenPriceEstimate(contributionId, buySellAmount)`
+
+### `licensePriceEstimate`
+`licensePriceEstimate(contributionId)`
+
 ### `buyTokens`
-`buyTokens(contributionId, buyAmount)`
+`buyTokens(contributionId, buyAmount, buyPrice)`
+Automatically set maxPrice
 
 ### `buyLicense`
 

@@ -3,10 +3,12 @@
 ## Submitting Contributions
 
 ### `newContribution`
+`newContribution(contribution, [tags], benefactor) => id`
 
 ## Buying and Selling Contribution Bonds and Usage Rights
 
 ### `buyTokens`
+`buyTokens(contributionId, buyAmount)`
 
 ### `buyLicense`
 

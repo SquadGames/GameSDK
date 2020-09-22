@@ -3,9 +3,19 @@
 ## Submitting Contributions
 
 ### `newContribution`
-`newContribution(contribution, [tags], benefactor, network) => id`
+`newContribution(contribution, [tags], licenseConfiguration) => id`
 
-`Contribution { data, license }`
+Contributions are of the type `{ data, license }`.
+
+Tags are strings used for querying contributions. 
+
+The data signature of the license configuration depends on the license. For the Squad beta contract, license configuration should be `{ benefactor, basisPoints, purchasePrice }`, where:
+
+- The benefactor is the address that can redeem profit from the Squad contract. This version of the API can only support licenses with a single benefactor.
+
+- Basis points (1/100s of a percent) represent the portion of incoming contribution revenue that goes to the benefactor, minus the network fee.
+
+- Purchase price is the amount, in reserve tokens, one must pay for rights to use the contribution
 
 ## Buying and Selling Contribution Bonds and Usage Rights
 

@@ -13,24 +13,31 @@ The data signature of the license configuration depends on the license. For the 
 
 - The benefactor is the address that can redeem profit from the Squad contract. This version of the API can only support licenses with a single benefactor.
 
-- Basis points (1/100s of a percent) represent the portion of incoming contribution revenue that goes to the benefactor, minus the network fee.
+- Basis points are the portion of incoming contribution revenue that goes to the benefactor, minus the network fee, where 1 BP = 1/10,000.
 
 - Purchase price is the amount, in reserve tokens, one must pay for rights to use the contribution
+
+Stores the contribution in a database under a unique ID (TODO: events and subgraph? IPFS pin?). 
+
+Uses the ID, license, and license configuration to call `createBond` in the Squad contract.
 
 ## Buying and Selling Contribution Bonds and Usage Rights
 
 ### `tokenPriceEstimate`
-`tokenPriceEstimate(contributionId, buySellAmount)`
-Should price estimate's automatically give a little wiggle room in case of simultaneous purchases?
+`tokenPriceEstimate(contributionId, buySellAmount) => price`
+Gets the supply of the contribution token, then calls `price` on the curve used in the Squad contract. Adds a standard buffer amount to the price estimate to account for gaps between estimate and actual price.
 
-### `licensePriceEstimate`
-`licensePriceEstimate(contributionId)`
+### `licensePrice`
+`licensePrice(contributionId) => price`
+Returns the price of minting a license for a contribution.
 
 ### `buyTokens`
 `buyTokens(contributionId, buyAmount, maxPrice)`
 
+
 ### `buyLicense`
 `buyLicense(contributionId)`
+Mints a license
 
 ### `sellTokens`
 

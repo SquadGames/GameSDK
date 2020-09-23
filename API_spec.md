@@ -24,22 +24,22 @@ Uses the ID, license, and license configuration to call `createBond` in the Squa
 ## Buying and Selling Contribution Bonds and Usage Rights
 
 ### `tokenReserveValue`
-`tokenReserveValue(contributionId, buySellAmount) => price`
+`tokenReserveValue(contributionId, buySellAmount) => value in reserve tokens`
 
 Gets the supply of the contribution token, then calls `price` on the curve used in the Squad contract. Adds a standard buffer amount to the price estimate to account for gaps between estimate and actual price (positive buffer for positive buySell, negative for negative).
 
 ### `licensePrice`
-`licensePrice(contributionId) => price`
+`licensePrice(contributionId) => price in reserve tokens`
 
 Returns the price in reserve tokens of minting a license for a contribution.
 
 ### `licenseTokenValue`
-`licenseTokenValue(licenseId)`
+`licenseTokenValue(licenseId) => value in contribution tokens`
 
 Returns the number of contribution tokens locked in the license. (contract function not written yet?)
 
 ### `licenseReserveValue`
-`licenseReserveValue(licenseId)`
+`licenseReserveValue(licenseId) => value in reserve tokens`
 
 Calls `tokenReserveValue` on the result of `licenseTokenValue`. Returns an estimated number of reserve tokens the license can be sold for.
 

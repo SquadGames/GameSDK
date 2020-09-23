@@ -23,27 +23,57 @@ Uses the ID, license, and license configuration to call `createBond` in the Squa
 
 ## Buying and Selling Contribution Bonds and Usage Rights
 
-### `tokenPriceEstimate`
-`tokenPriceEstimate(contributionId, buySellAmount) => price`
-Gets the supply of the contribution token, then calls `price` on the curve used in the Squad contract. Adds a standard buffer amount to the price estimate to account for gaps between estimate and actual price.
+### `tokenReserveValue`
+`tokenReserveValue(contributionId, buySellAmount) => price`
+
+Gets the supply of the contribution token, then calls `price` on the curve used in the Squad contract. Adds a standard buffer amount to the price estimate to account for gaps between estimate and actual price (positive buffer for positive buySell, negative for negative).
 
 ### `licensePrice`
 `licensePrice(contributionId) => price`
-Returns the price of minting a license for a contribution.
+
+Returns the price in reserve tokens of minting a license for a contribution.
+
+### `licenseTokenValue`
+`licenseTokenValue(licenseId)`
+
+Returns the number of contribution tokens locked in the license. (contract function not written yet?)
+
+### `licenseReserveValue`
+`licenseReserveValue(licenseId)`
+
+Calls `tokenReserveValue` on the result of `licenseTokenValue`. Returns an estimated number of reserve tokens the license can be sold for.
 
 ### `buyTokens`
 `buyTokens(contributionId, buyAmount, maxPrice)`
 
+Calls `buyBond` in the Squad contract. Transfers the price in reserve tokens (but reverts if it's > maxPrice) from the caller to Squad. Transfers the buy amount of contribution bond tokens to the caller.
 
 ### `buyLicense`
 `buyLicense(contributionId)`
-Mints a license
+
+Calls `buyAndMint` in the Squad contract. Transfers the purchase price in reserve tokens from the caller to Squad. Mints and transfers an NFT license to the caller.
 
 ### `sellTokens`
+`sellTokens(contributionId, amount, minValue)`
+
+Calls `sellBond` in the Squad contract. Transfers an amount of contribution tokens from the caller to Squad. Transfers the equivalent number of reserve tokens to the caller (but reverts if it's < minValue).
 
 ### `sellLicenseForTokens`
+`sellLicenseForTokens(licenseId)`
+
+Calls `returnLicense` in the Squad contract. Destroys the license and transfers the contribution tokens it represents to the caller.
 
 ### `sellLicenseForReserve`
+`sellLicenseForReserve(licenseId, minValue)`
+
+Calls `returnAndSell` in the Squad contract. Destroys the license, sells the resulting tokens for reserve, and transfers the reserve to the caller (reverts if sell price is < minValue).
+
+TODO: possible that Squad doesn't need `returnAndSell` because we can call the functions atomatically here?
+
+### `refinanceLicense`
+`refinanceLicense(licenseId)`
+
+Checks that `licenseReserveValue` > `licensePrice`. If it is, calls `returnAndSell` followed by `buyLicense` in the Squad contract, leaving the caller with the extra reserve tokens and a newly minted license.
 
 ## Withdrawing Funds
 

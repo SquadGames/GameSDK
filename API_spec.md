@@ -28,8 +28,8 @@ Uses the ID, license, and license configuration to call `createBond` in the Squa
 
 Gets the supply of the contribution token, then calls `price` on the curve used in the Squad contract. Adds a standard buffer amount to the price estimate to account for gaps between estimate and actual price (positive buffer for positive buySell, negative for negative).
 
-### `licensePrice`
-`licensePrice(contributionId) => price in reserve tokens`
+### `mintLicensePrice`
+`mintLicensePrice(contributionId) => price in reserve tokens`
 
 Returns the price in reserve tokens of minting a license for a contribution.
 
@@ -48,8 +48,8 @@ Calls `tokenReserveValue` on the result of `licenseTokenValue`. Returns an estim
 
 Calls `buyBond` in the Squad contract. Transfers the price in reserve tokens (but reverts if it's > maxPrice) from the caller to Squad. Transfers the buy amount of contribution bond tokens to the caller.
 
-### `buyLicense`
-`buyLicense(contributionId)`
+### `mintLicense`
+`mintLicense(contributionId)`
 
 Calls `buyAndMint` in the Squad contract. Transfers the purchase price in reserve tokens from the caller to Squad. Mints and transfers an NFT license to the caller.
 
@@ -75,10 +75,17 @@ TODO: possible that Squad doesn't need `returnAndSell` because we can call the f
 
 Checks that `licenseReserveValue` > `licensePrice`. If it is, calls `returnAndSell` followed by `buyLicense` in the Squad contract, leaving the caller with the extra reserve tokens and a newly minted license.
 
+TODO: see above
+
 ## Withdrawing Funds
 
 ### `withdraw`
-`withdraw(benefactor)`
+`withdraw()`
+
+### `withdrawFor`
+`withdrawFor(benefactor)`
+
+TODO: these should be called 'beneficiaries' not 'benefactors'
 
 ## Curating Contributions
 

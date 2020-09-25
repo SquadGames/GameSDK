@@ -68,7 +68,7 @@ Calls `returnLicense` in the Squad contract. Destroys the license and transfers 
 
 Calls `returnAndSell` in the Squad contract. Destroys the license, sells the resulting tokens for reserve, and transfers the reserve to the caller (reverts if sell price is < minValue).
 
-TODO: possible that Squad doesn't need `returnAndSell` because we can call the functions atomatically here?
+TODO: possible that Squad doesn't need `returnAndSell` because we can call the functions atomically here?
 
 ### `refinanceLicense`
 `refinanceLicense(licenseId)`

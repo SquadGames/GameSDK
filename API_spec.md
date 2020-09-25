@@ -79,21 +79,31 @@ TODO: see above
 
 ## Withdrawing Funds
 
-### `withdraw`
-`withdraw()`
-
 ### `withdrawFor`
 `withdrawFor(benefactor)`
+
+Calls `withdrawFor(address)` in the Squad contract, withdrawing any reserve tokens that have accumulated for the benefactor (minus network fees).
 
 TODO: these should be called 'beneficiaries' not 'benefactors'
 
 ## Curating Contributions
 
+TODO: what events do we need to record in a subgraph to enable these methods?
+
 ### `getTopContributions`
+`getTopContributions([tags], num)`
+
+Fetches the top `num` contributions in terms of market capitalization that share all `[tags]`.
 
 ### `getHotContributions`
+`getHotContributions([tags], num)`
+
+Fetches the top `num` contributions in terms of acceleration of market capitalization that share all `[tags]`.
 
 ### `getNewContributions`
+`getNewContributions([tags], num)`
+
+Fetches the newest `num` contributions in terms of creation date that share all `[tags]`.
 
 # Squad Games Client API
 

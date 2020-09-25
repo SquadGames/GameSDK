@@ -110,6 +110,9 @@ Fetches the newest `num` contributions in terms of creation date that share all 
 ## Submitting and validating Game-specific Contribution Types
 
 ### `newGame`
+`newGame(gameContribution, [tags], licenseConfiguration)`
+
+
 
 ### `newComponent`
 

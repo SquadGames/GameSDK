@@ -112,8 +112,14 @@ Fetches the newest `num` contributions in terms of creation date that share all 
 ### `newGame`
 `newGame(gameContribution, [tags], licenseConfiguration)`
 
-
+Data in a game contribution should contain the information needed to launch the game. A standard "squad game" tag is added to all games.
 
 ### `newComponent`
+`newComponent(componentContribution, [tags], licenseConfiguration)`
+
+Component contributions have no special requirements, but `tags` are expected to include the game contributions the components are intended for.
 
 ### `newFormat`
+`newFormat(formatContribution, [tags], licenseConfiguration)`
+
+Formats are like components, except their contribution `data` must include a list of components, which the API will verify are valid components before submitting.

@@ -21,6 +21,8 @@ Stores the contribution in a database under a unique ID (TODO: events and subgra
 
 Uses the ID, license, and license configuration to call `createBond` in the Squad contract.
 
+TODO: consider exactly how licenses should be stored and parsed. Does a readable language version of the license need to be stored in the metastore, or only a reference to it? Should the configuration be stored separately from or only integrated into the license text itself?
+
 ## Buying and Selling Contribution Bonds and Usage Rights
 
 ### `tokenReserveValue`

@@ -23,6 +23,18 @@ Uses the ID, license, and license configuration to call `createBond` in the Squa
 
 TODO: consider exactly how licenses should be stored and parsed. Does a readable language version of the license need to be stored in the metastore, or only a reference to it? Should the configuration be stored separately from or only integrated into the license text itself?
 
+## Changing Contribution License Settings
+
+### `setPurchasePrice`
+`setPurchasePrice(contributionId, price)`
+
+Calls `setPurchasePrice` in the autobond contract. 
+
+### `setBeneficiaryFee`
+`setBeneficiaryFee(contributionId, percentage)`
+
+TODO: not implemented in the contracts yet
+
 ## Buying and Selling Contribution Bonds and Usage Rights
 
 ### `tokenReserveValue`
